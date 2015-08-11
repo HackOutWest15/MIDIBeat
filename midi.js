@@ -22,9 +22,17 @@ function onMIDISuccess(midiAccess) {
 
 function onMIDIMessage(midiMessage) {
 		data = midiMessage.data;
-    console.log(data); 	// midi data => [command/channel, note, velocity]
+		if(data[0]==144){
+			playSound();
+		}
+		console.log(data); 	// midi data => [command/channel, note, velocity]
 }
 
 function onMIDIFailure(error) {
     console.log("Failed. " + error);
+}
+
+function playSound() {
+	var audio = new Audio('sounds/kick.mp3');
+	audio.play();
 }

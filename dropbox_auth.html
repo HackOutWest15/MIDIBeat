@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="96dy4xg7jf7zgir"></script>
+    </head>
+    <neck></neck>
+    <body>
+        <div id='link'></div>
+        <script>
+            var options = {
+                success: function(files) {
+                    document.getElementById('link').innerHTML+=files[0].name;
+                },
+
+                multiselect: false,
+                
+                linkType: "direct",
+
+                extenstions: ['images'],
+            }
+
+            function choose() {
+                Dropbox.choose(options);
+            }
+        </script>
+        <form>
+            <input type="button" value="Choose" onClick="choose()">
+    </body>

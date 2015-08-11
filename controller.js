@@ -53,9 +53,6 @@ function setName(buttonNumber, name) {
 }
 
 function playKey(key) {
-  console.log("play " + key);
-  console.log(sampleLibrary[key]);
+  //console.log("play " + key);
   sampleLibrary.play(key);
-	//var audio = new Audio('sounds/kick.mp3');
-	//audio.play();
 }

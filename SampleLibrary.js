@@ -11,6 +11,7 @@ SampleLibrary.prototype.setSample = function(key, value) {
 }
 
 SampleLibrary.prototype.play = function (key) {
-    var audio = this.samples[key];
-    audio.play();
+    //var audio = this.samples[key];
+    this.samples[key].currentTime = 0;
+    this.samples[key].play();
 }

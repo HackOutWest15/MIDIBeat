@@ -19,20 +19,35 @@ function init() {
     //         "</div>";
     // }
 
-    var buttonNumber = 21;
+    var buttonNumber = 1;
 
     var beatpad = document.getElementById("beatpad");
-    for ( ; buttonNumber < 30; buttonNumber++) {
+    for ( ; buttonNumber < 17; buttonNumber++) {
         beatpad.innerHTML += "<div id='" + buttonNumber + "' class='drumpad' onClick=\"chooseDropbox(" + buttonNumber + ")\">";
         beatpad.innerHTML += "</div>";
         sampleLibrary.setSample(buttonNumber, null);
     }
 
     var knobs = document.getElementById("knobs");
-    for ( ; buttonNumber < 42; buttonNumber++ ) {
+    for ( ; buttonNumber < 47; buttonNumber++ ) {
         knobs.innerHTML += "<div class='twist' id='" + buttonNumber + "' onclick='chooseDropbox(" + buttonNumber + ")'>" +
             "<div class='circlebase type1'></div>" +
             "</div>";
+        sampleLibrary.setSample(buttonNumber, null);
+    }
+
+    buttonNumber = 48;
+    var pianoContainer = document.getElementById("piano-container");
+    for ( keyCount = 0 ; buttonNumber < 110; buttonNumber++, keyCount++ ) {
+        var htmlString = "<li>";
+        htmlString += "<div class=white id ='" + buttonNumber +"' onclick='chooseDropbox(" + buttonNumber + ")'></div>";
+        console.log(keyCount % 8);
+        if (!(keyCount % 7 == 2 || keyCount % 7 == 6)) {
+            buttonNumber++;            
+            htmlString += "<div class=black id ='" + buttonNumber +"' onclick='chooseDropbox(" + buttonNumber + ")'></div>";
+        }
+        htmlString += "</li>";
+        pianoContainer.innerHTML += htmlString;
         sampleLibrary.setSample(buttonNumber, null);
     }
 }

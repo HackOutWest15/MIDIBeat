@@ -13,11 +13,12 @@ body {
 }
 
 .chooser {
+    position:relative;
     width: 1100px;
-    height: 300px;
+    height: 250px;
     margin:auto;
     border:10px groove #222;
-    background: -webkit-linear-gradient(#444, #151515);
+    background: -webkit-linear-gradient(#454545, #151515);
     border-radius:0 0 30px 30px;
 }
 
@@ -29,13 +30,30 @@ body {
 }
 
 #dropbox {
+    position:absolute;
     width:33%;
+    height:100%;
+    left:0px;
     float:left;
+    vertical-align:center;
+}
+
+#spotify {
+    padding:10px;
+    position:absolute;
+    width:33%;
+    height:100%;
+    left:33%;
+    vertical-align:center;
 }
 
 #local {
-    width:33%
+    position:absolute;
+    width:33%;
+    height:100%;
+    right:0px;
     float:right;
+    vertical-align:center;
 }
 
 

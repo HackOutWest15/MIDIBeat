@@ -13,7 +13,7 @@ function init() {
             "<br>" +
             "<input class=\"chooseButton\" type=\"image\" src=\"./resources/dropbox-button.png\" value=\"Dropbox\" onClick=\"chooseDropbox(" + buttonNumber + ")\"></input><div id='name" + buttonNumber + "'></div>" +
             "<br>" +
-            "<input class=\"chooseButton\" type=\"button\" value=\"Upload\" onClick=\"chooseLocal(" + buttonNumber + ")\"></input>";
+            "<input class=\"chooseButton\" type=\"file\" value=\"Upload\" onChange=\"chooseLocal(" + buttonNumber + ")\"></input>";
             "</span>" +
             "</div>";
         sampleLibrary.setSample(buttonNumber, null);
@@ -31,6 +31,13 @@ function chooseDropbox(buttonNumber) {
         extenstions: ['audio'],
     }
     Dropbox.choose(options);
+}
+
+function chooseLocal(buttonNumber) {
+    var file = {};
+    file["link"] = window.URL.createObjectURL(document.getElementById(buttonNumber).getElementsByTagName("input")[1].files[0]);
+
+    sampleLibrary.setSample(buttonNumber, file);
 }
 
 function playKey(key) {

@@ -4,8 +4,9 @@ function SampleLibrary() {
 
 }
 SampleLibrary.prototype.setSample = function(key, value) {
-    if (value)
+    if (value) {
         this.samples[key] = new Audio(value.link);
+    }
     this.metadata[key] = value;
 }
 

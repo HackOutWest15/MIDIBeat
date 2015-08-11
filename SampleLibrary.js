@@ -1,7 +1,8 @@
-class SampleLibrary {
-    var samples = {};
+function SampleLibrary() {
+    this.samples = {};
 
-    setSample(key, value) {
-        samples[key] = value;
-    }
 }
+SampleLibrary.prototype.setSample = function(key, value) {
+    this.samples[key] = value;
+}
+

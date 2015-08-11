@@ -2,13 +2,17 @@
 <html>
     <head>
         <title>MIDIBeat</title>
-        <script src="controller.js">
+        <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="96dy4xg7jf7zgir"></script>
+        <script src="midi.js"></script>
+        <script src="controller.js"></script>
+        <script src="SampleLibrary.js"></script>
     </head>
     <neck></neck>
     <body>
         <div id="chooser"></div>
         <script>
             init();
+        var sampleLibrary = new SampleLibrary();
         </script>
     </body>
 </html>

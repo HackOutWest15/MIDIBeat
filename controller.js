@@ -46,6 +46,11 @@ function dropboxChooser() {
     chooseDropbox(sampleLibrary.chosenKey);
 }
 
+function localChooser() {
+    document.getElementById("fileChooser").click();
+    chooseLocal(sampleLibrary.chosenKey);
+}
+
 function chooseDropbox(buttonNumber) {
     var options = {
         success: function(files) {
@@ -59,7 +64,7 @@ function chooseDropbox(buttonNumber) {
 }
 
 function chooseLocal(buttonNumber) {
-    var file = document.getElementById(buttonNumber).getElementsByTagName("input")[1].files[0];
+    var file = document.getElementById("fileChooser").files[0];
     var value = {};
     value["link"] = window.URL.createObjectURL(file);
     value["name"] = file.name;

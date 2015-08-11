@@ -30,6 +30,12 @@ body {
 
 #dropbox {
     width:33%;
+    float:left;
+}
+
+#local {
+    width:33%
+    float:right;
 }
 
 

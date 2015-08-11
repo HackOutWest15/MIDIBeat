@@ -7,3 +7,4 @@ Web Midi sampler.
 * Play Dropbox audio files through JavaScript
 * Search Spotify for previews
 * List audio files in Dropbox
+* Play samples with a MIDI keyboard

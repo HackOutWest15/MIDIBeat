@@ -11,3 +11,203 @@ body {
     display:inline-block;
     vertical-align:middle;
 }
+
+#piano{
+margin-top:100px;
+border:20px solid black;
+width:900px;
+height:500px;
+margin:auto;
+border-radius:30px 30px 0 0;
+overflow:hidden;
+background: -webkit-linear-gradient(#111, #444);
+background: -o-linear-gradient(#222, #444);
+background: -moz-linear-gradient(#222, #444);
+background: linear-gradient(#1e1d1d, #000);
+}
+#controls{
+   height:250px;
+   overflow:visible;
+}
+#beatpad {
+    height:90%;
+    width:32%;
+    float:left;
+}
+.drumpad {
+    height:15%;
+    width:20%;
+    float:left;
+    margin:2%;
+    margin-left:10px;
+    padding:1%;
+    background-color:grey;
+}
+.drumpad:active {
+box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-webkit-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-moz-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-ms-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+}
+#lcdscreen {
+    height:90%;
+    width:32%;
+    float:left;
+}
+#button1 {
+    width:20px;
+    height:10px;
+    float:left;
+    background-color:grey;
+    margin-top:20px;
+}
+#button2 {
+    width:20px;
+    height:10px;
+    float:right;
+    background-color:grey;
+    margin-top:20px;
+}
+#button1:active {
+box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-webkit-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-moz-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-ms-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+}
+#button2:active {
+box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-webkit-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-moz-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-ms-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+}
+#buttonwrap{
+    border:5px solid white;
+    width:90%;
+    height:50%;
+}
+#buttonrow1 {
+    width:20px;
+    height:10px;
+    border:3px solid white;
+    padding:2px;
+    margin-left:4px;
+    background-color:grey;
+    float:left;
+}
+#buttonrow2 {
+    width:20px;
+    height:10px;
+    border:3px solid white;
+    padding:2px;
+    margin-left:4px;
+    background-color:grey;
+    float:left;
+}
+.bluescreen {
+    margin-top:10px;
+    width:100px;
+    height:60px;
+    border:5px solid blue;
+    background-color:blue;
+    float:left;
+    margin-left:70px;
+}
+#enterknob{
+    width:60px;
+    height:60px;
+    float:left;
+    margin-top:10px;
+    margin-left:20px;
+}
+#knobs {
+    height:90%;
+    width:30%;
+    float:left;
+    margin-left:30px;
+}
+.circlebase{
+    border-radius: 50%;
+}
+.type1 {
+    width: 20px;
+    height: 20px;
+    background: black;
+    border: 5px solid grey;
+    margin:auto;
+}
+.twist{
+    height:7%;
+    width:15%;
+    float:left;
+    margin:2%;
+    padding:2%;
+}
+.light{
+width:10px;
+height:10px;
+border-radius:70%;
+background:#ff7700;
+float:left;
+margin-right:0px;
+margin-top:800px;
+}
+.text{
+float:left;
+}
+.text h1{
+font-family:metropolis;
+font-size:38px;
+color:#eee;
+line-height:60px;
+}
+#piano-container {
+margin-top:700px;
+margin-left:200px;
+width:910px;
+height:430px;
+background:#fff;
+margin:20px auto 0 90px;
+}
+#piano-container li {
+width:6.28%;
+height:100%;
+float:left;
+list-style-type:none;
+position:relative;
+}
+.white {
+width:99%;
+height:100%;
+float:left;
+box-shadow:0 1px 1px rgba(0, 0, 0, .5);
+position:relative;
+z-index:1;
+background:#f5f5f5;
+}
+.white:active {
+box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-webkit-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-moz-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+-ms-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
+}
+.white:active  #goat{
+background-image:url(../img/Goat.gif);
+}
+.black {
+position:absolute;
+z-index:2;
+width:70%;
+height:120px;
+background:#000;
+right:-35%;
+box-shadow: 1px 0 #111, 0 2px 0 #111, 0 3px 0 #333, 0 4px 0 #333, 0 5px 0 #333, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 1px 0 #777, 0 2px 0 #777, 0 3px 0 #666, 0 4px 0 #555, 0 5px 0 #444, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+-moz-box-shadow: 1px 0 #333, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #666, 0 5px 0 #777, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+-ms-box-shadow: 1px 0 #333, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #666, 0 5px 0 #777, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+}
+.black:active{
+box-shadow: 1px 0 #777, 0 2px 0 #777, 0 3px 0 #666, 0 4px 0 #555;
+-webkit-box-shadow: 1px 0 #555, 0 1px 0 #555, 0 1px 0 #444, 0 2px 0 #333;
+-moz-box-shadow: 1px 0 #111, 0 2px 0 #222, 0 3px 0 #222;
+-ms-box-shadow: 1px 0 #111, 0 2px 0 #222, 0 3px 0 #222;
+}

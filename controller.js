@@ -11,7 +11,7 @@ function init() {
             "<span class='keyController'>" +
             buttonNumber + 
             "<br>" +
-            "<input class=\"chooseButton\" type=\"image\" src=\"./resources/dropbox-button.png\" value=\"Dropbox\" onClick=\"chooseDropbox(" + buttonNumber + ")\"></input>" +
+            "<input class=\"chooseButton\" type=\"image\" src=\"./resources/dropbox-button.png\" value=\"Dropbox\" onClick=\"chooseDropbox(" + buttonNumber + ")\"></input><div id='name" + buttonNumber + "'></div>" +
             "<br>" +
             "<input class=\"chooseButton\" type=\"button\" value=\"Upload\" onClick=\"chooseLocal(" + buttonNumber + ")\"></input>";
             "</span>" +
@@ -24,7 +24,7 @@ function chooseDropbox(buttonNumber) {
     var options = {
         success: function(files) {
             sampleLibrary.setSample(buttonNumber, files[0]);
-            document.getElementById(buttonNumber).getElementsByTagName("input").value = files[0].name;
+            document.getElementById("name" + buttonNumber).innerHTML = files[0].name;
         },
         multiselect: false,
         linkType: "direct",

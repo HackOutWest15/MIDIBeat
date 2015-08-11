@@ -1,4 +1,3 @@
-
 function init() {
     //Create an array with all the key indexes
     var keys = [];
@@ -9,7 +8,8 @@ function init() {
         var buttonNumber = keys[i];
         document.getElementById('chooser').innerHTML +=
             "<div id=\"" + buttonNumber + "\">" +
-            "<input type=button value=\"Drobox " + buttonNumber + "\" onClick=\"chooseDropbox(" + buttonNumber + ")\"></input>" +
+            buttonNumber +
+            "<input type=\"image\" src=\"./resources/dropbox-button.png\" value=\"Dropbox\" onClick=\"chooseDropbox(" + buttonNumber + ")\"></input>" +
             "</div>";
         sampleLibrary.setSample(buttonNumber, null);
     }

@@ -27,6 +27,14 @@ function init() {
         beatpad.innerHTML += "</div>";
         sampleLibrary.setSample(buttonNumber, null);
     }
+
+    var knobs = document.getElementById("knobs");
+    for ( ; buttonNumber < 42; buttonNumber++ ) {
+        knobs.innerHTML += "<div class='twist' id='" + buttonNumber + "' onclick='chooseDropbox(" + buttonNumber + ")'>" +
+            "<div class='circlebase type1'></div>" +
+            "</div>";
+        sampleLibrary.setSample(buttonNumber, null);
+    }
 }
 
 function chooseDropbox(buttonNumber) {
@@ -62,7 +70,6 @@ function setName(buttonNumber, name) {
 
 function playKey(key) {
   console.log("play " + key);
-  setDrumpadActive(key);
   sampleLibrary.play(key);
   setDrumpadInactive(key);
 }

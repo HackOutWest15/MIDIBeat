@@ -31,12 +31,14 @@ function chooseDropbox(buttonNumber) {
         extenstions: ['audio'],
     }
     Dropbox.choose(options);
+    document.getElementById(buttonNumber).getElementsByTagName("input")[1].value = "";
 }
 
 function chooseLocal(buttonNumber) {
-    var file = {};
-    file["link"] = window.URL.createObjectURL(document.getElementById(buttonNumber).getElementsByTagName("input")[1].files[0]);
-
+    var file = document.getElementById(buttonNumber).getElementsByTagName("input")[1].files[0];
+    var value = {};
+    value["link"] = window.URL.createObjectURL(file);
+    value["name"] = file.
     sampleLibrary.setSample(buttonNumber, file);
 }
 

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>MIDIBeat</title>
         <style>
             @import url('style.css');
         </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="96dy4xg7jf7zgir"></script>
         <script src="midi.js"></script>
         <script src="controller.js"></script>
@@ -12,7 +14,9 @@
     </head>
     <neck></neck>
     <body>
+        <div class="container-fluid">
         <div id="chooser"></div>
+        </div>
         <script>
             var sampleLibrary = new SampleLibrary();
             init();

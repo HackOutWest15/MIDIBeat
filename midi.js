@@ -6,7 +6,7 @@ if (navigator.requestMIDIAccess) {
         sysex: false
     }).then(onMIDISuccess, onMIDIFailure);
 } else {
-    alert("No MIDI support in your browser =( ...  try Chrome");
+    console.log("No MIDI support in your browser =( ...  try Chrome");
 }
 
 

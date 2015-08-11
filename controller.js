@@ -27,3 +27,11 @@ function chooseDropbox(buttonNumber) {
     }
     Dropbox.choose(options);
 }
+
+function playKey(key) {
+  console.log("play " + key);
+  console.log(sampleLibrary[key]);
+  sampleLibrary.play(key);
+	//var audio = new Audio('sounds/kick.mp3');
+	//audio.play();
+}

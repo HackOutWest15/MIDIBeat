@@ -1,4 +1,5 @@
 function SampleLibrary() {
+    this.chosenKey = 1;
     this.samples = {};
     this.metadata = {};
 

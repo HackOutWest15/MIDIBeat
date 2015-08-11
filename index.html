@@ -5,6 +5,18 @@
     </head>
     <neck></neck>
     <body>
-        Hello World!
+        <div id="chooser"></div>
+        <script>
+            //Create an array with all the key indexes
+            var keys = [];
+            for (var i = 21; i <= 108; i++) {
+                keys.push( i );
+            }
+            var sampleLibrary = {};
+            for (var i = 0; i < keys.length; i++) {
+                document.getElementById('chooser').innerHTML += 
+                    "<input type=button value=\"" + keys[i] + "\"></input>"
+            }
+        </script>
     </body>
 </html>

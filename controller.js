@@ -5,7 +5,6 @@ function init() {
     for (var i = 21; i <= 108; i++) {
         keys.push( i );
     }
-    var sampleLibrary = new SampleLibrary();
     for (var i = 0; i < keys.length; i++) {
         var buttonNumber = keys[i];
         document.getElementById('chooser').innerHTML +=
@@ -20,6 +19,7 @@ function chooseDropbox(buttonNumber) {
     var options = {
         success: function(files) {
             sampleLibrary.setSample(buttonNumber, files[0]);
+            document.getElementById(buttonNumber).getElementsByTagName("input").value = files[0].name;
         },
         multiselect: false,
         linkType: "direct",

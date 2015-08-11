@@ -25,7 +25,7 @@ function onMIDIMessage(midiMessage) {
 		if(data[0]==144){
       playKey(data[1]);
     }
-		//console.log(data); 	// midi data => [command/channel, note, velocity]
+		// console.log(data); 	// midi data => [command/channel, note, velocity]
 }
 
 function onMIDIFailure(error) {

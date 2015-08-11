@@ -39,7 +39,7 @@ function chooseLocal(buttonNumber) {
     var value = {};
     value["link"] = window.URL.createObjectURL(file);
     value["name"] = file.name;
-    sampleLibrary.setSample(buttonNumber, file);
+    sampleLibrary.setSample(buttonNumber, value);
     setName(buttonNumber, value["name"]);
     clearLocal(buttonNumber);
 }

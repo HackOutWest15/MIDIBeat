@@ -1,0 +1,13 @@
+body {
+    font-style:italic;
+}
+
+.chooseButton {
+    height: 30px;
+}
+
+.keyController {
+    text-align:center;
+    display:inline-block;
+    vertical-align:middle;
+}

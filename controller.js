@@ -7,9 +7,14 @@ function init() {
     for (var i = 0; i < keys.length; i++) {
         var buttonNumber = keys[i];
         document.getElementById('chooser').innerHTML +=
-            "<div id=\"" + buttonNumber + "\">" +
-            buttonNumber +
-            "<input type=\"image\" src=\"./resources/dropbox-button.png\" value=\"Dropbox\" onClick=\"chooseDropbox(" + buttonNumber + ")\"></input>" +
+            "<div class='keyController' id=\"" + buttonNumber + "\">" +
+            "<span class='keyController'>" +
+            buttonNumber + 
+            "<br>" +
+            "<input class=\"chooseButton\" type=\"image\" src=\"./resources/dropbox-button.png\" value=\"Dropbox\" onClick=\"chooseDropbox(" + buttonNumber + ")\"></input>" +
+            "<br>" +
+            "<input class=\"chooseButton\" type=\"button\" value=\"Upload\" onClick=\"chooseLocal(" + buttonNumber + ")\"></input>";
+            "</span>" +
             "</div>";
         sampleLibrary.setSample(buttonNumber, null);
     }

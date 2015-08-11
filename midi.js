@@ -21,7 +21,8 @@ function onMIDISuccess(midiAccess) {
 }
 
 function onMIDIMessage(midiMessage) {
-    console.log(midiMessage.data); 	// midi data => [command/channel, note, velocity]
+		data = midiMessage.data;
+    console.log(data); 	// midi data => [command/channel, note, velocity]
 }
 
 function onMIDIFailure(error) {

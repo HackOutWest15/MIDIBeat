@@ -23,8 +23,12 @@ function onMIDISuccess(midiAccess) {
 function onMIDIMessage(midiMessage) {
 		data = midiMessage.data;
 		if(data[0]==144){
-      playKey(data[1]);
-    }
+            playKey(data[1]);
+            setDrumpadActive(data[1]);
+        }
+        if(data[0]==128) {
+            setDrumpadInactive(data[1]);
+        }
 		//console.log(data); 	// midi data => [command/channel, note, velocity]
 }
 

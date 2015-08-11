@@ -8,6 +8,7 @@
         </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="96dy4xg7jf7zgir"></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="midi.js"></script>
         <script src="controller.js"></script>
         <script src="SampleLibrary.js"></script>
@@ -17,38 +18,10 @@
         <div class="container-fluid">
         <div id="chooser"></div>
         </div>
-        <script>
-            var sampleLibrary = new SampleLibrary();
-            init();
-        </script>
 
         <div id="piano">
             <div id="controls">
                 <div id="beatpad">
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
-                    <div class="drumpad">
-                    </div>
                 </div>
 
                 <div id="lcdscreen">
@@ -197,7 +170,15 @@
       </div>
 
 
+        <script>
+            var sampleLibrary = new SampleLibrary();
+            init();
+        </script>
 
+
+        <div class="footer">
+            Synthesizer design by <a href="http://codepen.io/NickYerg/pen/hLHyx" target="_blank">Nick Yerg</a>
+        </div>
 
     </body>
 </html>

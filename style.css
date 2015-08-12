@@ -35,6 +35,7 @@ body {
 }
 
 #volume {
+    display:none;
     vertical-align:center;
     text-align:right;
     width:200px;

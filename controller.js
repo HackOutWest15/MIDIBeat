@@ -107,7 +107,28 @@ function setDrumpadInactive(id) {
 
 function spotifyChooser(){
   console.log("Spotify");
-  //console.log(sampleLibrary.chosenKey);
+  console.log(sampleLibrary.chosenKey);
+
+  //$('#spotify-ok-button').click(function(){
+  var url = $('#spotify-url').val();
+  var keyNum = sampleLibrary.chosenKey;
+
+      if ($('#spotify-url').val()==="") {
+        // invalid
+        // $('#title').next('.help-inline').show();
+        // return false;
+        console.log("no url");
+      }
+      else {
+        // submit the form here
+        // $('#InfroText').submit();
+        chooseSpotifyPreviewURL(keyNum, url)
+        //console.log($('#spotify-url').val());
+        //return true;
+      }
+
+//  });
+
   //chooseSpotifyPreviewURL(sampleLibrary.chosenKey);
 }
 

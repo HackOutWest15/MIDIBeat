@@ -8,7 +8,8 @@
         </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="96dy4xg7jf7zgir"></script>
-        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="midi.js"></script>
         <script src="controller.js"></script>
         <script src="SampleLibrary.js"></script>
@@ -60,7 +61,7 @@
                     <input type="image" src="resources/dropbox-logotype-gray.svg" width=100% onclick="dropboxChooser()">
                 </div>
                 <div id="spotify">
-                    <input type="image" src="https://spotifypresscom.files.wordpress.com/2015/01/spotify_logo_rgb_black.png" width=100% onclick="spotifyChooser()">
+                    <input type="image" src="https://spotifypresscom.files.wordpress.com/2015/01/spotify_logo_rgb_black.png" width=100% data-toggle="modal" data-target=".bs-example-modal-sm">
                 </div>
                 <div id="local">
                     <input type="image" src="resources/computer.png" height="130px" onClick="localChooser()">
@@ -68,6 +69,34 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="spotifyLabel">Choose Spotify URL</h4>
+              </div>
+              <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="spotify-url" class="control-label">Spotify Preview URL</label>
+                      <input type="text" class="form-control" id="spotify-url" placeholder="Spotify Preview URL">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" id="spotify-ok-button" onclick="spotifyChooser()">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
 
         <div class="footer">
             Synthesizer design is an adaption of work by <a href="http://codepen.io/NickYerg/pen/hLHyx" target="_blank">Nick Yerg</a>

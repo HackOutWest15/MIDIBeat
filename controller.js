@@ -102,8 +102,9 @@ function clearLocal(buttonNumber) {
 }
 
 function playKey(key) {
-    setDrumpadInactive(sampleLibrary.chosenKey);
+  var oldKey = sampleLibrary.chosenKey;
   sampleLibrary.play(key);
+  setDrumpadInactive(oldKey);  
   setDrumpadInactive(key);
 }
 

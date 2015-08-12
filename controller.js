@@ -27,7 +27,7 @@ function init() {
         var htmlString = "<li>";
         htmlString += "<div class=white id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
         if (!(keyCount % 7 == 2 || keyCount % 7 == 6)) {
-            buttonNumber++;            
+            buttonNumber++;
             htmlString += "<div class=black id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
         }
         htmlString += "</li>";
@@ -66,7 +66,7 @@ function chooseDropbox(buttonNumber) {
         linkType: "direct",
         extenstions: ['audio'],
     }
-    Dropbox.choose(options); 
+    Dropbox.choose(options);
 }
 
 function chooseLocal(buttonNumber) {
@@ -108,7 +108,14 @@ function setDrumpadInactive(id) {
     $("#"+id).css("-webkit-box-shadow", "");
     $("#"+id).css("-moz-box-shadow", "");
     $("#"+id).css("-ms-box-shadow", "");
-    
+
+}
+
+
+function spotifyChooser(){
+  console.log("Spotify");
+  //console.log(sampleLibrary.chosenKey);
+  //chooseSpotifyPreviewURL(sampleLibrary.chosenKey);
 }
 
 // (50, 'https://p.scdn.co/mp3-preview/254eae7ce1d3ee59c411bb97f47b5a8fb9a893b3')

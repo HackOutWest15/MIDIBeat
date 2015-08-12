@@ -21,8 +21,9 @@ function onMIDISuccess(midiAccess) {
 }
 
 function onMIDIMessage(midiMessage) {
+    console.log(data);
     data = midiMessage.data;
-    if(data[0]==144){
+    if(data[0]==144 || data[0] ==153){
         playKey(data[1]);
         setDrumpadActive(data[1]);
     }

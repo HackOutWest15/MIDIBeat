@@ -1,24 +1,41 @@
 function init() {
+
+    var pre = 'resources/samples/';
+    var defaultSamples = [
+        "BassDrum.wav",
+        "ClosedHihat.wav",
+        "OpenHiHat.wav",
+        "Snare.wav",
+        "SnareFX.wav",
+        "SnareNoise.wav",
+        "ShorelineGuitar.mp3"
+    ];
+    for (var i = 0; i < defaultSamples.length; i++) {
+        defaultSamples[i] = pre + defaultSamples[i];
+    }
+
+    console.log(defaultSamples);
+
     //Create an array with all the key indexes
     var keys = [];
     for (var i = 21; i <= 108; i++) {
         keys.push( i );
     }
-    var buttonNumber = 1;
+    var buttonNumber = 0;
 
     var beatpad = document.getElementById("beatpad");
-    for ( ; buttonNumber < 17; buttonNumber++) {
+    for ( ; buttonNumber < 16; buttonNumber++) {
         beatpad.innerHTML += "<div id='" + buttonNumber + "' class='drumpad' onClick=\"setCurrent(" + buttonNumber + ")\">";
         beatpad.innerHTML += "</div>";
-        sampleLibrary.setSample(buttonNumber, null);
+        sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
     }
 
     var knobs = document.getElementById("knobs");
-    for ( ; buttonNumber < 47; buttonNumber++ ) {
+    for ( ; buttonNumber < 48; buttonNumber++ ) {
         knobs.innerHTML += "<div class='twist' id='" + buttonNumber + "' onclick='setCurrent(" + buttonNumber + ")'>" +
             "<div class='circlebase type1'></div>" +
             "</div>";
-        sampleLibrary.setSample(buttonNumber, null);
+        sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
     }
 
     buttonNumber = 48;
@@ -27,12 +44,14 @@ function init() {
         var htmlString = "<li>";
         htmlString += "<div class=white id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
         if (!(keyCount % 7 == 2 || keyCount % 7 == 6)) {
+            sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
             buttonNumber++;
             htmlString += "<div class=black id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
         }
         htmlString += "</li>";
         pianoContainer.innerHTML += htmlString;
-        sampleLibrary.setSample(buttonNumber, null);
+        sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
+
     }
     jQuery("input#fileChooser").change(function () {
         chooseLocal(sampleLibrary.chosenKey);
@@ -73,7 +92,6 @@ function chooseLocal(buttonNumber) {
     var file = document.getElementById("fileChooser").files[0];
     var value = {};
     value["link"] = window.URL.createObjectURL(file);
-    console.log(file);
     value["name"] = file.name;
     sampleLibrary.setSample(buttonNumber, value);
     clearLocal(buttonNumber);
@@ -84,12 +102,19 @@ function clearLocal(buttonNumber) {
 }
 
 function playKey(key) {
-  console.log("play " + key);
+    setDrumpadInactive(sampleLibrary.chosenKey);
   sampleLibrary.play(key);
   setDrumpadInactive(key);
 }
 
 function setDrumpadActive(id) {
+    var noteNumber = sampleLibrary.chosenKey;
+    var sampleName;
+    if (sampleLibrary.metadata[noteNumber])
+        sampleName = sampleLibrary.metadata[noteNumber].name;
+    else 
+        sampleName = "empty";
+    setLcd(noteNumber, sampleName);
     $("#"+id).css("box-shadow", "-1px 0 15px rgba(0, 0, 0, .7) inset");
     $("#"+id).css("-webkit-box-shadow", "-1px 0 15px rgba(0, 0, 0, .7) inset");
     $("#"+id).css("-moz-box-shadow", "-1px 0 15px rgba(0, 0, 0, .7) inset");
@@ -101,7 +126,7 @@ function setDrumpadInactive(id) {
     $("#"+id).css("-webkit-box-shadow", "");
     $("#"+id).css("-moz-box-shadow", "");
     $("#"+id).css("-ms-box-shadow", "");
-
+    clearLcd();
 }
 
 
@@ -146,4 +171,23 @@ function setStartAndStop(key, start, stop){
   else {
     console.log("nope");
   }
+}
+
+function setLcd(noteNumber, name) {
+    var note = calcNoteFromNumber(noteNumber);
+    $(noteName).html(note);
+    $(fileName).html(name);
+}
+
+function clearLcd() {
+    $(noteName).empty();
+    $(fileName).empty();
+}
+
+function calcNoteFromNumber(number) {
+    number = number;
+    var notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    var octave = Math.floor(number / 12);
+    var note = notes[number % 12];
+    return "" + note + octave;
 }

@@ -6,11 +6,16 @@ function SampleLibrary() {
     //this.stop = 30;
 
 }
-SampleLibrary.prototype.setSample = function(key, value) {
-    if (value) {
-        this.samples[key] = new Audio(value.link);
+SampleLibrary.prototype.setSample = function(key, value, isLink) {
+    if (isLink) {
+        this.samples[key] = new Audio(value);
+        this.metadata[key] = {};
+        this.metadata[key].name = value.substring(value.lastIndexOf('/')+1);
     }
-    this.metadata[key] = value;
+    else if (value) {
+        this.samples[key] = new Audio(value.link);
+        this.metadata[key] = value;
+    }
 }
 
 SampleLibrary.prototype.setSpotifySample = function(key, value) {
@@ -23,8 +28,11 @@ SampleLibrary.prototype.setSpotifySample = function(key, value) {
 
 SampleLibrary.prototype.play = function (key) {
     var audio = this.samples[key];
-    audio.currentTime = 0;
+    this.chosenKey = key;
+    if (audio) {
+        audio.currentTime = 0;
 		audio.play();
+    }
 }
 
 SampleLibrary.prototype.setStartStop = function (key, start, stop){

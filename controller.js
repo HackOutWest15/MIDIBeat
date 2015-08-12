@@ -1,4 +1,21 @@
 function init() {
+
+    var pre = 'resources/samples/';
+    var defaultSamples = [
+        "BassDrum.wav",
+        "ClosedHihat.wav",
+        "OpenHiHat.wav",
+        "Snare.wav",
+        "SnareFX.wav",
+        "SnareNoise.wav",
+        "ShorelineGuitar.mp3"
+    ];
+    for (var i = 0; i < defaultSamples.length; i++) {
+        defaultSamples[i] = pre + defaultSamples[i];
+    }
+
+    console.log(defaultSamples);
+
     //Create an array with all the key indexes
     var keys = [];
     for (var i = 21; i <= 108; i++) {
@@ -10,7 +27,7 @@ function init() {
     for ( ; buttonNumber < 16; buttonNumber++) {
         beatpad.innerHTML += "<div id='" + buttonNumber + "' class='drumpad' onClick=\"setCurrent(" + buttonNumber + ")\">";
         beatpad.innerHTML += "</div>";
-        sampleLibrary.setSample(buttonNumber, null);
+        sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
     }
 
     var knobs = document.getElementById("knobs");
@@ -18,7 +35,7 @@ function init() {
         knobs.innerHTML += "<div class='twist' id='" + buttonNumber + "' onclick='setCurrent(" + buttonNumber + ")'>" +
             "<div class='circlebase type1'></div>" +
             "</div>";
-        sampleLibrary.setSample(buttonNumber, null);
+        sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
     }
 
     buttonNumber = 48;
@@ -27,12 +44,14 @@ function init() {
         var htmlString = "<li>";
         htmlString += "<div class=white id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
         if (!(keyCount % 7 == 2 || keyCount % 7 == 6)) {
+            sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
             buttonNumber++;
             htmlString += "<div class=black id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
         }
         htmlString += "</li>";
         pianoContainer.innerHTML += htmlString;
-        sampleLibrary.setSample(buttonNumber, null);
+        sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
+
     }
     jQuery("input#fileChooser").change(function () {
         chooseLocal(sampleLibrary.chosenKey);
@@ -73,7 +92,6 @@ function chooseLocal(buttonNumber) {
     var file = document.getElementById("fileChooser").files[0];
     var value = {};
     value["link"] = window.URL.createObjectURL(file);
-    console.log(file);
     value["name"] = file.name;
     sampleLibrary.setSample(buttonNumber, value);
     clearLocal(buttonNumber);

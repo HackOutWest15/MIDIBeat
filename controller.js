@@ -98,3 +98,19 @@ function setDrumpadInactive(id) {
     $("#"+id).css("-ms-box-shadow", "");
     
 }
+
+// (50, 'https://p.scdn.co/mp3-preview/254eae7ce1d3ee59c411bb97f47b5a8fb9a893b3')
+function chooseSpotifyPreviewURL(keyNum, url){
+  var preview = new Audio(url);
+  sampleLibrary.setSpotifySample(keyNum, preview);
+}
+
+function setStartAndStop(key, start, stop){
+
+  if(start>=0 && stop <30){
+    sampleLibrary.setStartStop(key, start, stop);
+  }
+  else {
+    console.log("nope");
+  }
+}

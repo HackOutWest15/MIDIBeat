@@ -26,7 +26,6 @@ function init() {
     for ( keyCount = 0 ; buttonNumber < 110; buttonNumber++, keyCount++ ) {
         var htmlString = "<li>";
         htmlString += "<div class=white id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
-        console.log(keyCount % 8);
         if (!(keyCount % 7 == 2 || keyCount % 7 == 6)) {
             buttonNumber++;            
             htmlString += "<div class=black id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
@@ -35,6 +34,9 @@ function init() {
         pianoContainer.innerHTML += htmlString;
         sampleLibrary.setSample(buttonNumber, null);
     }
+    jQuery("input#fileChooser").change(function () {
+        chooseLocal(sampleLibrary.chosenKey);
+    });
 }
 function setCurrent(keyNumber) {
     setDrumpadInactive(sampleLibrary.chosenKey);
@@ -48,7 +50,6 @@ function dropboxChooser() {
 
 function localChooser() {
     document.getElementById("fileChooser").click();
-    chooseLocal(sampleLibrary.chosenKey);
 }
 
 function chooseDropbox(buttonNumber) {
@@ -67,13 +68,14 @@ function chooseLocal(buttonNumber) {
     var file = document.getElementById("fileChooser").files[0];
     var value = {};
     value["link"] = window.URL.createObjectURL(file);
+    console.log(file);
     value["name"] = file.name;
     sampleLibrary.setSample(buttonNumber, value);
     clearLocal(buttonNumber);
 }
 
 function clearLocal(buttonNumber) {
-    document.getElementById(buttonNumber).getElementsByTagName("input")[1].value = "";
+    document.getElementById("fileChooser").value = "";
 }
 
 function playKey(key) {

@@ -90,6 +90,13 @@ function playKey(key) {
 }
 
 function setDrumpadActive(id) {
+    var noteNumber = sampleLibrary.chosenKey;
+    var sampleName;
+    if (sampleLibrary.metadata[noteNumber])
+        sampleName = sampleLibrary.metadata[noteNumber].name;
+    else 
+        sampleName = "empty";
+    setLcd(noteNumber, sampleName);
     $("#"+id).css("box-shadow", "-1px 0 15px rgba(0, 0, 0, .7) inset");
     $("#"+id).css("-webkit-box-shadow", "-1px 0 15px rgba(0, 0, 0, .7) inset");
     $("#"+id).css("-moz-box-shadow", "-1px 0 15px rgba(0, 0, 0, .7) inset");
@@ -118,4 +125,23 @@ function setStartAndStop(key, start, stop){
   else {
     console.log("nope");
   }
+}
+
+function setLcd(noteNumber, name) {
+    var note = calcNoteFromNumber(noteNumber);
+    $(noteName).html(note);
+    $(fileName).html(name);
+}
+
+function clearLcd() {
+    $(noteName).empty();
+    $(fileName).empty();
+}
+
+function calcNoteFromNumber(number) {
+    number = number - 1;
+    var notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    var octave = Math.floor(number / 12);
+    var note = notes[number % 12];
+    return "" + note + octave;
 }

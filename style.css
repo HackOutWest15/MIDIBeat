@@ -170,32 +170,6 @@ box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
     width:32%;
     float:left;
 }
-#button1 {
-    width:20px;
-    height:10px;
-    float:left;
-    background-color:grey;
-    margin-top:20px;
-}
-#button2 {
-    width:20px;
-    height:10px;
-    float:right;
-    background-color:grey;
-    margin-top:20px;
-}
-#button1:active {
-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
--webkit-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
--moz-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
--ms-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
-}
-#button2:active {
-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
--webkit-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
--moz-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
--ms-box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
-}
 #buttonwrap{
     border:5px solid white;
     width:90%;
@@ -221,12 +195,14 @@ box-shadow:-1px 0 15px rgba(0, 0, 0, .7) inset;
 }
 .bluescreen {
     margin-top:10px;
-    width:100px;
-    height:60px;
+    width:200px;
+    height:90px;
     border:5px solid blue;
     background-color:blue;
     float:left;
     margin-left:70px;
+    font-family: Orbitron;
+    color:white;
 }
 #enterknob{
     width:60px;

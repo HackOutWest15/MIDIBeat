@@ -108,7 +108,7 @@ function setDrumpadInactive(id) {
     $("#"+id).css("-webkit-box-shadow", "");
     $("#"+id).css("-moz-box-shadow", "");
     $("#"+id).css("-ms-box-shadow", "");
-
+    clearLcd();
 }
 
 
@@ -146,7 +146,7 @@ function clearLcd() {
 }
 
 function calcNoteFromNumber(number) {
-    number = number - 1;
+    number = number;
     var notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
     var octave = Math.floor(number / 12);
     var note = notes[number % 12];

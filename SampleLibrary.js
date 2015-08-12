@@ -23,8 +23,11 @@ SampleLibrary.prototype.setSpotifySample = function(key, value) {
 
 SampleLibrary.prototype.play = function (key) {
     var audio = this.samples[key];
-    audio.currentTime = 0;
+    this.chosenKey = key;
+    if (audio) {
+        audio.currentTime = 0;
 		audio.play();
+    }
 }
 
 SampleLibrary.prototype.setStartStop = function (key, start, stop){

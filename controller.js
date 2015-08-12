@@ -8,7 +8,6 @@ function init() {
         "Snare.wav",
         "SnareFX.wav",
         "SnareNoise.wav",
-        "ShorelineGuitar.mp3"
     ];
     for (var i = 0; i < defaultSamples.length; i++) {
         defaultSamples[i] = pre + defaultSamples[i];

@@ -112,7 +112,7 @@ function setDrumpadActive(id) {
     var sampleName;
     if (sampleLibrary.metadata[noteNumber])
         sampleName = sampleLibrary.metadata[noteNumber].name;
-    else 
+    else
         sampleName = "empty";
     setLcd(noteNumber, sampleName);
     $("#"+id).css("box-shadow", "-1px 0 15px rgba(0, 0, 0, .7) inset");
@@ -131,30 +131,20 @@ function setDrumpadInactive(id) {
 
 
 function spotifyChooser(){
-  console.log("Spotify");
-  console.log(sampleLibrary.chosenKey);
 
-  //$('#spotify-ok-button').click(function(){
   var url = $('#spotify-url').val();
+  var start = $('#spotify-url-start').val();
+  var stop = $('#spotify-url-stop').val();
   var keyNum = sampleLibrary.chosenKey;
 
       if ($('#spotify-url').val()==="") {
-        // invalid
-        // $('#title').next('.help-inline').show();
-        // return false;
         console.log("no url");
       }
       else {
-        // submit the form here
-        // $('#InfroText').submit();
-        chooseSpotifyPreviewURL(keyNum, url)
-        //console.log($('#spotify-url').val());
-        //return true;
+        chooseSpotifyPreviewURL(keyNum, url);
+        setStartAndStop(keyNum, start, stop);
+
       }
-
-//  });
-
-  //chooseSpotifyPreviewURL(sampleLibrary.chosenKey);
 }
 
 // (50, 'https://p.scdn.co/mp3-preview/254eae7ce1d3ee59c411bb97f47b5a8fb9a893b3')

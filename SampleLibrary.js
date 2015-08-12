@@ -29,10 +29,24 @@ SampleLibrary.prototype.setSpotifySample = function(key, value) {
 SampleLibrary.prototype.play = function (key) {
     var audio = this.samples[key];
     this.chosenKey = key;
-    if (audio) {
-        audio.currentTime = 0;
-		audio.play();
+
+    if(audio.hasOwnProperty('start')){
+      console.log("yesss");
+      audio.play();
+      int = setInterval(function() {
+            if (audio.currentTime > audio.stop) {
+                audio.pause();
+                clearInterval();
+            }
+      	}, 10);
+      audio.currentTime = audio.start;
     }
+
+    if (!audio.hasOwnProperty('start')) {
+        audio.currentTime = 0;
+		    audio.play();
+    }
+
 }
 
 SampleLibrary.prototype.setStartStop = function (key, start, stop){

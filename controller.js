@@ -4,17 +4,17 @@ function init() {
     for (var i = 21; i <= 108; i++) {
         keys.push( i );
     }
-    var buttonNumber = 1;
+    var buttonNumber = 0;
 
     var beatpad = document.getElementById("beatpad");
-    for ( ; buttonNumber < 17; buttonNumber++) {
+    for ( ; buttonNumber < 16; buttonNumber++) {
         beatpad.innerHTML += "<div id='" + buttonNumber + "' class='drumpad' onClick=\"setCurrent(" + buttonNumber + ")\">";
         beatpad.innerHTML += "</div>";
         sampleLibrary.setSample(buttonNumber, null);
     }
 
     var knobs = document.getElementById("knobs");
-    for ( ; buttonNumber < 47; buttonNumber++ ) {
+    for ( ; buttonNumber < 48; buttonNumber++ ) {
         knobs.innerHTML += "<div class='twist' id='" + buttonNumber + "' onclick='setCurrent(" + buttonNumber + ")'>" +
             "<div class='circlebase type1'></div>" +
             "</div>";
@@ -84,7 +84,7 @@ function clearLocal(buttonNumber) {
 }
 
 function playKey(key) {
-  console.log("play " + key);
+    setDrumpadInactive(sampleLibrary.chosenKey);
   sampleLibrary.play(key);
   setDrumpadInactive(key);
 }

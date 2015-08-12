@@ -40,3 +40,10 @@ SampleLibrary.prototype.setStartStop = function (key, start, stop){
   this.samples[key].start = start;
   this.samples[key].stop = stop;
 }
+
+SampleLibrary.setVolume = function (newVol) {
+    var sample = this.samples[this.chosenKey];
+    if (sample) {
+        sample.volume = newVol;
+    }
+}

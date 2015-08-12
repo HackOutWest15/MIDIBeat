@@ -37,6 +37,11 @@ function init() {
     jQuery("input#fileChooser").change(function () {
         chooseLocal(sampleLibrary.chosenKey);
     });
+
+//     jQuery("input#volumeCOntroller").change(function () {
+//         console.log($('#volumeController').value);
+//         sampleLibrary.setVolume($('#volumeController').value);
+//     });
 }
 function setCurrent(keyNumber) {
     setDrumpadInactive(sampleLibrary.chosenKey);

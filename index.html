@@ -46,18 +46,26 @@
 
 
         <div class="chooser">
-            <div id="header">
-                CHANNEL SETTINGS
+            <div id="topControl">
+                <div id="header">
+                    LOAD SAMPLE
+                </div>
+                <div id="volume">
+                    <span style="font-size:40pt;color:#000;float:left" class="glyphicon glyphicon-volume-up"></span>
+                    <input type="range" style="float:right;" name="volumeController" id="volumeController" value="100" />
+                </div>
             </div>
-            <div id="dropbox">
-                <input type="image" src="resources/dropbox-logotype-gray.svg" width=100% onclick="dropboxChooser()">
-            </div>
-            <div id="spotify">
-                <input type="image" src="https://spotifypresscom.files.wordpress.com/2015/01/spotify_logo_rgb_black.png" width=100%>
-            </div>
-            <div id="local">
-                <input type="image" src="http://www.headfirstlabs.com/books/hfwd/ch11/foobar/images/foobar_logo.jpg" onClick="localChooser()">
-                <input type="file" id="fileChooser" style="display:none" />
+            <div id="bottomControl">
+                <div id="dropbox">
+                    <input type="image" src="resources/dropbox-logotype-gray.svg" width=100% onclick="dropboxChooser()">
+                </div>
+                <div id="spotify">
+                    <input type="image" src="https://spotifypresscom.files.wordpress.com/2015/01/spotify_logo_rgb_black.png" width=100%>
+                </div>
+                <div id="local">
+                    <input type="image" src="resources/computer.png" height="130px" onClick="localChooser()">
+                    <input type="file" id="fileChooser" style="display:none" />
+                </div>
             </div>
         </div>
 

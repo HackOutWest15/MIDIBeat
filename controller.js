@@ -56,15 +56,13 @@ function init() {
         chooseLocal(sampleLibrary.chosenKey);
     });
 
-//     jQuery("input#volumeCOntroller").change(function () {
-//         console.log($('#volumeController').value);
-//         sampleLibrary.setVolume($('#volumeController').value);
-//     });
+    setCurrent(0);
 }
+
 function setCurrent(keyNumber) {
-    setDrumpadInactive(sampleLibrary.chosenKey);
+    var note = calcNoteFromNumber(keyNumber);
     sampleLibrary.chosenKey = keyNumber;
-    setDrumpadActive(keyNumber);
+    $('#currentKey').html(note);
 }
 
 function dropboxChooser() {
@@ -104,6 +102,7 @@ function playKey(key) {
     sampleLibrary.play(key);
     // setDrumpadInactive(oldKey);  
     setDrumpadActive(key);
+    setCurrent(key);
 }
 
 function setDrumpadActive(id) {

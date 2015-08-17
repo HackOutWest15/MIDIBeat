@@ -128,7 +128,6 @@ function setDrumpadInactive(id) {
     clearLcd();
 }
 
-
 function spotifyChooser(){
 
   var url = $('#spotify-url').val();

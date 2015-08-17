@@ -24,14 +24,14 @@ function init() {
 
     var beatpad = document.getElementById("beatpad");
     for ( ; buttonNumber < 16; buttonNumber++) {
-        beatpad.innerHTML += "<div id='" + buttonNumber + "' class='drumpad' onClick=\"setCurrent(" + buttonNumber + ")\">";
+        beatpad.innerHTML += "<div id='" + buttonNumber + "' class='drumpad' onMouseDown=\"playKey(" + buttonNumber + ")\" onMouseUp=\"setDrumpadInactive(" + buttonNumber +")\">";
         beatpad.innerHTML += "</div>";
         sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
     }
 
     var knobs = document.getElementById("knobs");
     for ( ; buttonNumber < 48; buttonNumber++ ) {
-        knobs.innerHTML += "<div class='twist' id='" + buttonNumber + "' onclick='setCurrent(" + buttonNumber + ")'>" +
+        knobs.innerHTML += "<div class='twist' id='" + buttonNumber + "' onMouseDown='playKey(" + buttonNumber + ")' onMouseUp='setDrumpadInactive(" + buttonNumber + ")'>" +
             "<div class='circlebase type1'></div>" +
             "</div>";
         sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
@@ -41,11 +41,11 @@ function init() {
     var pianoContainer = document.getElementById("piano-container");
     for ( keyCount = 0 ; buttonNumber < 110; buttonNumber++, keyCount++ ) {
         var htmlString = "<li>";
-        htmlString += "<div class=white id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
+        htmlString += "<div class=white id ='" + buttonNumber +"' onMouseDown='playKey(" + buttonNumber + ")' onMouseUp='setDrumpadInactive(" + buttonNumber + ")'></div>";
         if (!(keyCount % 7 == 2 || keyCount % 7 == 6)) {
             sampleLibrary.setSample(buttonNumber, defaultSamples[buttonNumber % defaultSamples.length], true);
             buttonNumber++;
-            htmlString += "<div class=black id ='" + buttonNumber +"' onclick='setCurrent(" + buttonNumber + ")'></div>";
+            htmlString += "<div class=black id ='" + buttonNumber +"' onMouseDown='playKey(" + buttonNumber + ")' onMouseUp='setDrumpadInactive(" + buttonNumber + ")'></div>";
         }
         htmlString += "</li>";
         pianoContainer.innerHTML += htmlString;
@@ -101,10 +101,9 @@ function clearLocal(buttonNumber) {
 }
 
 function playKey(key) {
-  var oldKey = sampleLibrary.chosenKey;
-  sampleLibrary.play(key);
-  setDrumpadInactive(oldKey);  
-  setDrumpadInactive(key);
+    sampleLibrary.play(key);
+    // setDrumpadInactive(oldKey);  
+    setDrumpadActive(key);
 }
 
 function setDrumpadActive(id) {

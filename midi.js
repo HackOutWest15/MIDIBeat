@@ -25,7 +25,6 @@ function onMIDIMessage(midiMessage) {
     data = midiMessage.data;
     if(data[0]==144 || data[0] ==153){
         playKey(data[1]);
-        setDrumpadActive(data[1]);
     }
     if(data[0]==128) {
         setDrumpadInactive(data[1]);
